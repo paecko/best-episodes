@@ -16,5 +16,5 @@ class Episode(base):
     title = Column(String)
     imdb_id = Column(String)
     rating = Column(Numeric)
-# fixing git username issue test
+# fixing git username issue
 
