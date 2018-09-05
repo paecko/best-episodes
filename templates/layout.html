@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block body %}
+<center><h1>Best Episodes Of</h1></center>
+<div class="row">
+    <!-- Sidebar with options to filtering tv shows -->
+    <div class="col-md-2">
+        <div class="form-group">
+            <form action="{{ url_for('index') }}" method="post">
+                <input type="text" name="searchin"  placeholder="Name of show" class="form-control margin">
+                <input type="submit" name="searchsub"  placeholder="Search" class="form-control margin">
+                <input type="submit" name="popular" value="Most Popular" class="form-control margin">
+                <input type="submit" name="alpha" value="Alphabetical" class="form-control margin">
+            </form>
+        </div>
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle margin" type="button" id="dropdownMenu2"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genres
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">Action</button>
+                <button class="dropdown-item" type="button">Adventure</button>
+                <button class="dropdown-item" type="button">Animation</button>
+                <button class="dropdown-item" type="button">Biography</button>
+                <button class="dropdown-item" type="button">Comedy</button>
+                <button class="dropdown-item" type="button">Crime</button>
+                <button class="dropdown-item" type="button">Documentary</button>
+                <button class="dropdown-item" type="button">Family</button>
+                <button class="dropdown-item" type="button">Fantasy</button>
+                <button class="dropdown-item" type="button">Game Show</button>
+                <button class="dropdown-item" type="button">History</button>
+                <button class="dropdown-item" type="button">Horror</button>
+                <button class="dropdown-item" type="button">Music</button>
+                <button class="dropdown-item" type="button">Musical</button>
+                <button class="dropdown-item" type="button">Mystery</button>
+                <button class="dropdown-item" type="button">Music</button>
+                <button class="dropdown-item" type="button">Musical</button>
+                <button class="dropdown-item" type="button">Mystery</button>
+                <button class="dropdown-item" type="button">News</button>
+                <button class="dropdown-item" type="button">Reality-TV</button>
+                <button class="dropdown-item" type="button">Romance</button>
+                <button class="dropdown-item" type="button">Sci-Fi</button>
+                <button class="dropdown-item" type="button">Sitcom</button>
+                <button class="dropdown-item" type="button">Sport</button>
+                <button class="dropdown-item" type="button">Talk-Show</button>
+                <button class="dropdown-item" type="button">Thriller</button>
+                <button class="dropdown-item" type="button">War</button>
+                <button class="dropdown-item" type="button">Western</button>
+            </div>
+        </div>
+    </div>
+    <!--Main section with the list of tv shows, adjusted according to the fiter -->
+    <div class="col-md-8 margin2">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Rating</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for show in shows %}
+            <tr>
+                {% set showid = show.imdb_id %}
+                <td><a href="{{ url_for('episodelist', showid=showid)}}">{{ show.title }}</a></td>
+                <td><a href="{{ url_for('episodelist', showid=showid)}}">{{ show.rating }}</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}

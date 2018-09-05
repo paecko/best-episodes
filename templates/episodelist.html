@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="col-md-10 margin2">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Episode</th>
+                <th>Name</th>
+                <th>Rating</th>
+            </tr>
+            <tbody>
+                {% for episode in episodelist %}
+                    <tr>
+                        <td><a href="{{ episode.link }}">{{ episode.episode | format_episode }}</a></td>
+                        <td><a href="{{ episode.link }}">{{ episode.title }}</a></td>
+                        <td><a href="{{ episode.link }}">{{ episode.rating }}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </thead>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+body{
+    background-color:#FEFEFA;
+}
+.margin{
+    margin-left:45px;
+    margin-top:60px;
+}
+
+.margin2{
+    margin-left:150px;
+}
+
+table tr td a {
+    display:block;
+    height:100%;
+    width:100%;
+}
+
+table tr td {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
